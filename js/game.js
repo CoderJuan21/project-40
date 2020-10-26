@@ -65,6 +65,10 @@ class Game{
 
                          
                      }
+                     textSize(25);
+                     fill("yellow");
+                     text("Player 1:"+allPlayers.player1.score, 50, 50);
+                     text("Player 2:"+allPlayers.player2.score, 50, 100);
                     
                      
                  
@@ -104,23 +108,19 @@ class Game{
                
                   if (player.index !== null) {
                      //fill code here, to destroy the objects.
-             /*  x = 0;
-               if(fruits.isTouching(player1.x)){
-                fruits.destroy();
-               }*/
-               players.destroy();
-            }
-            if(fruits.isTouching(players)){
-                fruits.destroy();
-            }
-                
+                     for(var i = 0; i<fruitGroup.length; i++){
 
-         
-         
-        
-         
+                        if(fruitGroup.isTouching(players)){
+                            fruitGroup.destroyEach();
+                            player.update();
+                            player.score = player.score+5;
+                        }
 
-    }
+                     }
+            
+            }
+           
+        }
 
     end(){
        console.log("Game Ended");
